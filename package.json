@@ -1,0 +1,24 @@
+{
+  "name": "LIRI_HW",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "dependencies": {
+    "axios": "^0.18.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nBurich/LIRI_HW.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nBurich/LIRI_HW/issues"
+  },
+  "homepage": "https://github.com/nBurich/LIRI_HW#readme"
+}
