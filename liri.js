@@ -40,6 +40,12 @@ axios.get(movieUrl).then (
         console.log("Lanuage: " + response.language);
         console.log("Plot: " + response.plot);
         console.log("Actors: " + response.actors);
+
+        const fs = require('fs');
+
+        fs.appendFile('random.txt', response, function (err) {
+         if (err) throw err;
+         console.log('Saved!');
     }
 );
 // Ombd end //
@@ -58,6 +64,12 @@ axios.get(concertUrl).then (
         console.log("Location: " + response[0].venue.city+region+country);
         console.log("Date: " + response.datetime);
         datetime = moment(datetime).format('MM/DD/YYYY');
+
+        const fs = require('fs');
+
+    fs.appendFile('random.txt', response, function (err) {
+      if (err) throw err;
+      console.log('Saved!');
     }
 );
 
@@ -81,7 +93,13 @@ var spot = spotify.search({ type: 'track', query: song })
     })
     .catch(function(err) {
   console.log(err);
-    });
 
+  const fs = require('fs');
+
+  fs.appendFile('random.txt', spot , function (err) {
+    if (err) throw err;
+    console.log('Saved!');
+    });
+    
 
 };
