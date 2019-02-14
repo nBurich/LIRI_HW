@@ -2,11 +2,6 @@ require("dotenv").config();
 
 var axios = require("axios");
 
-var keys = require("./keys.js");
-
-var spotify = new Spotify(keys.spotify);
-
-
 // Commands //
 var type = process.argv[2];
 
@@ -59,10 +54,34 @@ if (!artist) {
 
 axios.get(concertUrl).then (
     function(response) {
-        console.log(response[0].venue.name);
-        console.log(response[0].venue.city+region+country);
-        console.log(response.datetime);
+        console.log("Name: " + response[0].venue.name);
+        console.log("Location: " + response[0].venue.city+region+country);
+        console.log("Date: " + response.datetime);
         datetime = moment(datetime).format('MM/DD/YYYY');
     }
 );
 
+// Bands in Town end //
+// Spotify start//
+var keys = require("./keys.js");
+
+var spotify = new Spotify(keys.spotify);
+
+var song = process.argv.slice(3).join(" ");
+
+if (!song) {
+    song = "The Sign";
+
+var spot = spotify.search({ type: 'track', query: song })
+    .then(function(response) {
+    console.log("Name: " + response.tracks.items[0].name);
+    console.log("Song: " + response.tracks.items[0].song);
+    console.log("Link: " + response.tracks.items[0].preview_url);
+    console.log("Album: " + response.tracks.items[0].album.name);
+    })
+    .catch(function(err) {
+  console.log(err);
+    });
+
+
+};
